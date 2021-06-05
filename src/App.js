@@ -25,11 +25,11 @@ class App extends Component {
       autoevaluation: ''
     }
   }
-
+  //modal para insertar data en la API
   modalInsertar=()=>{
     this.setState({modalInsertar: !this.state.modalInsertar});
   }
-
+  //funcion para seleccionar un estudiante de entre los que se encuentran listados
   seleccionarAlumno=(students)=>{
     this.setState({
       tipoModal: 'actualizar',
@@ -109,9 +109,9 @@ class App extends Component {
           <td>{students.note}</td>
           <td>{students.autoevaluation}</td>
           <td>
-                <button className="btn btn-primary" onClick={()=>{this.seleccionarEmpresa(students); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                <button className="btn btn-primary" onClick={()=>{this.seleccionarAlumno(students); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                 {"   "}
-                <button className="btn btn-danger" onClick={()=>{this.seleccionarEmpresa(students); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                <button className="btn btn-danger" onClick={()=>{this.seleccionarAlumno(students); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                 </td>
           </tr>
           )
