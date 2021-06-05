@@ -1,0 +1,31 @@
+{
+  "students": [
+    {
+      "id": "nS2Gk5T",
+      "complete_name": "usuario de prueba",
+      "document": "145151",
+      "age": "36",
+      "gender": "Female",
+      "note": "4.1",
+      "autoevaluation": "4"
+    },
+    {
+      "id": "usjjRY9",
+      "complete_name": "alejandro test",
+      "document": "1561561",
+      "age": "14",
+      "gender": "Male",
+      "note": "5",
+      "autoevaluation": "2.5"
+    },
+    {
+      "id": "Lr0ZvTv",
+      "complete_name": "react crud",
+      "document": "454545",
+      "age": "20",
+      "gender": "Female",
+      "note": "55",
+      "autoevaluation": "55"
+    }
+  ]
+}
