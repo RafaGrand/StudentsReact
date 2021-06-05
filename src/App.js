@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
+
 const url="http://localhost:3000/students/";
 
 class App extends Component {
@@ -52,7 +53,7 @@ class App extends Component {
       console.log(error.message);
     })
     }
-  //se agrega peticion "POST" para eliminar estudiante
+  //se agrega peticion "POST" 
   peticionPost=async()=>{
     delete this.state.form.id;
    await axios.post(url,this.state.form).then(response=>{
@@ -66,6 +67,13 @@ class App extends Component {
   peticionPut=()=>{
     axios.put(url+this.state.form.id, this.state.form).then(response=>{
       this.modalInsertar();
+      this.peticionGet();
+    })
+  }
+  //Peticion "DELETE"
+  peticionDelete=()=>{
+    axios.delete(url+this.state.form.id).then(response=>{
+      this.setState({modalEliminar: false});
       this.peticionGet();
     })
   }
@@ -84,6 +92,10 @@ class App extends Component {
     });
     console.log(this.state.form);
     }
+
+  handleSubmit = e =>{
+    e.preventDefault();
+  }
     
   render(){
     const {form}=this.state;
