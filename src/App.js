@@ -44,7 +44,7 @@ class App extends Component {
       }
     })
   }
-
+  //se agrega peticion "GET" para listar datos de los estudiante
   peticionGet=()=>{
     axios.get(url).then(response=>{
       this.setState({data: response.data});
@@ -52,12 +52,12 @@ class App extends Component {
       console.log(error.message);
     })
     }
-
+  //se agrega peticion "POST" para eliminar estudiante
   peticionPost=async()=>{
     delete this.state.form.id;
    await axios.post(url,this.state.form).then(response=>{
       this.modalInsertar();
-      this.peticionGet();
+      this.peticionGet();// se llama a la peticion GET para refrescar los datos
     }).catch(error=>{
       console.log(error.message);
     })
@@ -139,28 +139,29 @@ class App extends Component {
                     <input className="form-control" type="text" name="complete_name" id="complete_name" onChange={this.handleChange} value={form?form.complete_name: ''}/>
                     <br />
                     <label htmlFor="document">Documento</label>
-                    <input className="form-control" type="text" name="document" id="document" onChange={this.handleChange} value={form?form.document: ''}/>
+                    <input className="form-control" type="number" name="document" id="document" onChange={this.handleChange} value={form?form.document: ''}/>
                     <br />
                     <label htmlFor="age">Edad</label>
                     <input className="form-control" type="number" name="age" id="age" onChange={this.handleChange} value={form?form.age:''}/>
                     <br />
                     <label htmlFor="gender">Genero</label>
                     <select className="form-control" id="gender" name="gender" onChange={this.handleChange} value={form?form.gender:''}>
+                      <option value="">Selecciona una opción</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                     </select>
                     
                     <br />
                     <label htmlFor="note">Nota</label>
-                    <input className="form-control" type="text" name="note" id="note" onChange={this.handleChange} value={form?form.note:''}/>
+                    <input className="form-control" type="number" name="note" id="note" min={0} max={5} onChange={this.handleChange} value={form?form.note:''}/>
                     <br />
                     <label htmlFor="autoevaluation">Autoevaluación</label>
-                    <input className="form-control" type="text" name="autoevaluation" id="autoevaluation" onChange={this.handleChange} value={form?form.autoevaluation:''}/>
+                    <input className="form-control" type="number" name="autoevaluation" id="autoevaluation" min={0} max={5} onChange={this.handleChange} value={form?form.autoevaluation:''}/>
                   </div>
                 </ModalBody>
 
                 <ModalFooter>
-                  {this.state.tipoModal=='insertar'?
+                  {this.state.tipoModal==='insertar'?
                     <button className="btn btn-success" onClick={()=>this.peticionPost()}>
                     Insertar
                   </button>: <button className="btn btn-primary" onClick={()=>this.peticionPut()}>
