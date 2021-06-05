@@ -62,6 +62,13 @@ class App extends Component {
       console.log(error.message);
     })
   }
+  //se agrega peticion "PUT" paraq actualizar datos del estudiante
+  peticionPut=()=>{
+    axios.put(url+this.state.form.id, this.state.form).then(response=>{
+      this.modalInsertar();
+      this.peticionGet();
+    })
+  }
 
   componentDidMount(){
     this.peticionGet();
@@ -128,14 +135,27 @@ class App extends Component {
                     <label htmlFor="id">ID</label>
                     <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
                     <br />
-                    <label htmlFor="nombre">Nombre Completo</label>
+                    <label htmlFor="complete_name">Nombre Completo</label>
                     <input className="form-control" type="text" name="complete_name" id="complete_name" onChange={this.handleChange} value={form?form.complete_name: ''}/>
                     <br />
-                    <label htmlFor="nombre">Documento</label>
+                    <label htmlFor="document">Documento</label>
                     <input className="form-control" type="text" name="document" id="document" onChange={this.handleChange} value={form?form.document: ''}/>
                     <br />
-                    <label htmlFor="capital_bursatil">Edad</label>
-                    <input className="form-control" type="text" name="age" id="age" onChange={this.handleChange} value={form?form.age:''}/>
+                    <label htmlFor="age">Edad</label>
+                    <input className="form-control" type="number" name="age" id="age" onChange={this.handleChange} value={form?form.age:''}/>
+                    <br />
+                    <label htmlFor="gender">Genero</label>
+                    <select className="form-control" id="gender" name="gender" onChange={this.handleChange} value={form?form.gender:''}>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                    
+                    <br />
+                    <label htmlFor="note">Nota</label>
+                    <input className="form-control" type="text" name="note" id="note" onChange={this.handleChange} value={form?form.note:''}/>
+                    <br />
+                    <label htmlFor="autoevaluation">Autoevaluación</label>
+                    <input className="form-control" type="text" name="autoevaluation" id="autoevaluation" onChange={this.handleChange} value={form?form.autoevaluation:''}/>
                   </div>
                 </ModalBody>
 
