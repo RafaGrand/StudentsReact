@@ -103,6 +103,9 @@ class App extends Component {
     <div className="App">
     <br />
     <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}>Agregar Alumno</button>
+    <button className="btn btn-info">
+    Promedio
+    </button>
   <br /><br />
   <table className="table">
     <thead>
