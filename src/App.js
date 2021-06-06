@@ -8,6 +8,23 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 
+//function getNotes(students) {
+//  return students.note;
+//}
+
+//function addScores(runningTotal, note) {
+//  return runningTotal + note;
+//}
+
+//const found = getNotes;
+// Extrae las notas a un array de numeros
+//const noteScores = this.state.data.map(getNotes);
+
+//const scoresTotal = noteScores.reduce(addScores, 0);
+
+//const averageNotes = scoresTotal / noteScores.length;
+//console.log("Promedio de notas:", averageNotes);
+
 const url="http://localhost:3000/students/";
 
 class App extends Component {
